@@ -16,14 +16,20 @@ class sale_custom_qty(models.Model):
     def onchange_quantity(self):
         r2 = 0
         for rec in self:
-            if " " in rec.alt:
-                space = rec.alt.split(" ")
-                slash = space[1].split("/")
-                r1 = rec.anch*rec.larg*(int(space[0])+round(int(slash[0])/int(slash[1]),2))
-                r2 = r1/144
-                
-            if "/" in rec.alt and not " " in rec.alt:
-                sslash = rec.alt.split("/")
-                rr1 = rec.anch*rec.larg*(round(int(sslash[0])/int(sslash[1]),2))
-                r2 = rr1/144
-            rec.product_uom_qty = r2*rec.qty
+            if rec.alt:
+                if " " in rec.alt:
+                    space = rec.alt.split(" ")
+                    slash = space[1].split("/")
+                    r1 = rec.anch*rec.larg*(int(space[0])+round(int(slash[0])/int(slash[1]),2))
+                    r2 = r1/144
+
+                elif "/" in rec.alt and not " " in rec.alt:
+                    sslash = rec.alt.split("/")
+                    rr1 = rec.anch*rec.larg*(round(int(sslash[0])/int(sslash[1]),2))
+                    r2 = rr1/144
+                else:
+                    alone = rec.alt
+                    rr1 = rec.anch*rec.larg*(int(alone[0]))
+                    r2 = rr1/144
+                    
+                rec.product_uom_qty = r2*rec.qty
