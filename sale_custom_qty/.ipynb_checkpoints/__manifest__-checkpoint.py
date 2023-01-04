@@ -20,7 +20,7 @@
     'version': '0.1',
     'licence': 'LGPL-3',
     # any module necessary for this one to work correctly
-    'depends': ['base', 'sale'],
+    'depends': ['base', 'sale', 'mrp'],
 
     # always loaded
     'data': [
