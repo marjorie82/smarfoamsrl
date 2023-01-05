@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_popular_supplier_payment_txt_popular_supplier_payment_txt,popular_supplier_payment_txt.popular_supplier_payment_txt,model_popular_supplier_payment_txt_popular_supplier_payment_txt,base.group_user,1,1,1,1

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_income_withholding,report_income_withholding.income.withholding.report,model_income_withholding_report,base.group_user,1,1,1,1
+access_income_withholding_lines,report_income_withholding.income.withholding.report.lines,model_income_withholding_report_lines,base.group_user,1,1,1,1

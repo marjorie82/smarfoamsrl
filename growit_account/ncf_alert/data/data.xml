@@ -1,0 +1,17 @@
+<odoo>
+    <data noupdate="1">
+        <record id="group_notification_ncf" model="res.groups">
+            <field name="name">Notification NCF</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="notification_ncf" model="mail.channel">
+            <field name="name">Notificacion de NCF</field>
+            <field name="description">Alertas de los Comprobantes Fiscales.</field>
+<!--             <field name="public" eval="groups"/> -->
+            <field name="group_public_id" eval="ref('ncf_alert.group_notification_ncf')"/>
+            <field name="group_ids" eval="[(4, ref('ncf_alert.group_notification_ncf'))]"/>
+<!--             <field name="email_send" eval="True"/> -->
+        </record>
+    </data>
+</odoo>

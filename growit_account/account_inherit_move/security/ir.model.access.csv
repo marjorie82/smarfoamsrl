@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_inherit_move_account_inherit_move,account_inherit_move.account_inherit_move,model_account_inherit_move_account_inherit_move,base.group_user,1,1,1,1

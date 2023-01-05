@@ -1,0 +1,27 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="popular_supplier_payment_txt">
+      <field name="name">popular_supplier_payment_txt</field>
+      <field name="model">wizard.payment.popular.txt</field>
+      <field name="arch" type="xml">
+        <form>
+
+	    <group>
+          	<field name="file_name" invisible="1"/>
+          	<field name="file_binary"/>
+	    </group>
+
+<footer>
+<button name='generate_txt' type='object' string='Generar'/>
+</footer>
+        </form>
+      </field>
+    </record>
+<act_window id="wizard_payment_txt"
+            name="Generar TXT Popular"
+            binding_model="account.payment"
+            res_model="wizard.payment.popular.txt"
+            view_mode="form"
+            target="new"/>
+  </data>
+</odoo>

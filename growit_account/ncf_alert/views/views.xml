@@ -1,0 +1,45 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="sequence_view">
+      <field name="name">ncf_alert list</field>
+      <field name="model">ir.sequence</field>
+      <field name="inherit_id" ref="base.sequence_view"/>
+      <field name="arch" type="xml">
+        <field name="number_next_actual" position="after">
+          <field name="max_ncf"/>
+          <field name="notification_ncf"/>
+          <field name="channel"/>
+            <field 
+            name="user_ids"
+            widget="many2many_tags">
+            <tree>
+                <field name="name"/>
+            </tree>
+          </field>
+        </field>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="sequence_view_list">
+      <field name="name">ncf_alert list</field>
+      <field name="model">account.journal</field>
+      <field name="inherit_id" ref="l10n_do_accounting.view_account_journal_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='l10n_do_sequence_ids']/tree" position="inside">
+          <field name="max_ncf"/>
+          <field name="notification_ncf"/>
+          <field name="channel"/>
+          <field 
+            name="user_ids"
+            widget="many2many_tags">
+            <tree>
+                <field name="name"/>
+            </tree>
+          </field>
+        </xpath>
+      </field>
+    </record>
+      
+  </data>
+</odoo>

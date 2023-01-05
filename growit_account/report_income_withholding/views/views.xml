@@ -1,0 +1,50 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="view_income_withholding">
+      <field name="name">view_income_withholding</field>
+      <field name="model">income.withholding.report</field>
+      <field name="arch" type="xml">
+        <form>
+          <field name='period' placeholder="12/2022"/>
+
+          <footer>
+            <button name="generate_report" type="object" string="Generar"/>
+            <button special="cancel" string="Cancel"/>
+          </footer>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_income_withholding_lines">
+      <field name="name">income_withholding_lines</field>
+      <field name="model">income.withholding.report.lines</field>
+      <field name="arch" type="xml">
+        <tree create="0">
+          <field name="report_id" invisible="1"/>
+          <field name="move_id"/>
+          <field name="number"/>
+          <field name="date"/>
+          <field name="payment_ref"/>
+          <field name="parnert_id"/>
+          <field name="description"/>
+          <field name="amount"/>
+          <field name="amount_isr"/>
+          <field name="amount_tax"/>
+        </tree>
+      </field>
+    </record>
+
+     <record id="action_income_withholding" model="ir.actions.act_window">
+        <field name="name">Report Income Withholding</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">income.withholding.report</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_lauch_report"
+              name="Report Income Withholding"
+              action="action_income_withholding"
+              parent="account.menu_finance_reports"/>
+  </data>
+</odoo>

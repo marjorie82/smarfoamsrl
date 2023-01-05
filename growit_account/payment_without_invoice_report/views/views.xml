@@ -1,0 +1,55 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="payment_without_invoice_report_form_view">
+      <field name="name">payment_without_invoice_report_form_view</field>
+      <field name="model">payment.without.invoice.report</field>
+      <field name="arch" type="xml">
+        <form>
+          <div class="jumbotron">
+            <h3>Reporte de Pagos sin aplicar</h3>
+          </div>
+          <footer>
+            <button name="generate" type="object" string="Generar"/>
+            <button special="cancel" string="Cancelar"/>
+          </footer>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="payment_without_invoice_report_action_window">
+      <field name="name">payment_without_invoice_report window</field>
+      <field name="res_model">payment.without.invoice.report</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+
+
+    <record model="ir.ui.view" id="payment_without_invoice_report_line_tree_view">
+      <field name="name">payment_without_invoice_report_line_tree_view</field>
+      <field name="model">payment.without.invoice.report.line</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="report_id" invisible="1"/>
+          <field name="payment_date" readonly="1"/>
+          <field name="payment_id" readonly="1"/>
+          <field name="journal_id" readonly="1"/>
+          <field name="partner_id" readonly="1"/>
+          <field name="currency_id" invisible="1"/>
+          <field name="communication" readonly="1"/>
+          <field name="amount" readonly="1" sum="Total"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="payment_without_invoice_report_action_window_line">
+      <field name="name">payment_without_invoice_report_line window</field>
+      <field name="res_model">payment.without.invoice.report.line</field>
+      <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem name="Reporte Pagos sin Fact."
+              id="payment_without_invoice_report"
+              parent="account.menu_finance_reports"
+              action="payment_without_invoice_report_action_window"/>
+  </data>
+</odoo>
