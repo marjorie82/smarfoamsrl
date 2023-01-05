@@ -2,3 +2,6 @@
 	path = indexa-git/l10n-dominicana
 	url = git@github.com:indexa-git/l10n-dominicana.git
 	branch = 15.0
+[submodule "growit_account"]
+	path = growit_account
+	url = git@github.com:crbll0/growit_account.git
